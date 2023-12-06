@@ -4,7 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Vue Todos</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <label for="goal">Add your goal:</label>
+      <!-- v-model: Vue Directive (connection between the input and the data
+      property) -->
+      <input type="text" id="goal" v-model="enteredValue" />
+      <button v-on:click="addGoal">Add</button>
+      <ul>
+        <!-- v-for: Vue Directive (looping through the goals array) -->
+        <li v-for="goal in goals">{{ goal }}</li>
+      </ul>
+    </div>
+    <style>
+      #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 1rem;
+        outline: 1px solid gray;
+        padding: 1rem;
+        font-size: 2rem;
+        width: 50%;
+        margin: 5rem auto;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        outline: 2px solid darkgray;
+        padding: 1rem;
+        list-style-type: none;
+      }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>
